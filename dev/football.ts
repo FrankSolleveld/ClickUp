@@ -19,13 +19,14 @@ class Football {
 
        // Make the HTML Element for the football.
         document.body.appendChild(this.htmlElement)
+        console.log("Made the football in the document.")
 
         // Here we add a click event on the football.
         this.htmlElement.addEventListener("mouseover",()     => this.mouseoverHandler())
 
         // We give X and Y stativ values and randomize this later on.
         this.x = 3
-        this.y = 6
+        this.y = 12
 
         // Randomizing the position of the football.
         this.speedX = Math.random() * 2 + 1
@@ -34,13 +35,12 @@ class Football {
 
     move() : void {
 
-        // Here the movements are calculated.
-        this.x += this.speedX
+        // Here the movements are calculated. The ball is just falling.
         this.y += this.speedY
 
       
         // If football goes to the ground, game over. This counts for the clientHeight as well for the regular y variable.
-        if(this.y + this.htmlElement.clientHeight > window.innerHeight || this.y < 0) {
+        if(this.y + this.htmlElement.clientHeight < window.innerHeight || this.y < 0) {
 
             let football = this.htmlElement;
             football.classList.add("fail");
@@ -65,7 +65,7 @@ class Football {
     draw() : void {
 
         // Making sure the balls move.
-        this.htmlElement.style.transform ="translate("+this.x+"100px, "+this.y+"100px)"
+        this.htmlElement.style.transform ="translate("+this.y+"-5px)"
 
     }
 }

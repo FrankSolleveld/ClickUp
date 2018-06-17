@@ -5,16 +5,16 @@ var Football = (function () {
         this.game = game;
         this.htmlElement = document.createElement("football");
         document.body.appendChild(this.htmlElement);
+        console.log("Made the football in the document.");
         this.htmlElement.addEventListener("mouseover", function () { return _this.mouseoverHandler(); });
         this.x = 3;
-        this.y = 6;
+        this.y = 12;
         this.speedX = Math.random() * 2 + 1;
         this.speedY = Math.random() * 2 + 2;
     }
     Football.prototype.move = function () {
-        this.x += this.speedX;
         this.y += this.speedY;
-        if (this.y + this.htmlElement.clientHeight > window.innerHeight || this.y < 0) {
+        if (this.y + this.htmlElement.clientHeight < window.innerHeight || this.y < 0) {
             var football = this.htmlElement;
             football.classList.add("fail");
             console.log(football);
@@ -28,7 +28,7 @@ var Football = (function () {
         this.game.fail(this);
     };
     Football.prototype.draw = function () {
-        this.htmlElement.style.transform = "translate(" + this.x + "100px, " + this.y + "100px)";
+        this.htmlElement.style.transform = "translate(" + this.y + "-5px)";
     };
     return Football;
 }());
