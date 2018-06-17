@@ -8,6 +8,7 @@
 
 ### Done
 * Background
+* CSS
 
 
 ### Todo
@@ -16,4 +17,4 @@
 * Debugging
 
 ### Known issues
-
+* Ball not moving
