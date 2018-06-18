@@ -36,6 +36,9 @@ class Game {
         // Removing the football from the array of footballs
         // Splicing
         let index = this.footballs.indexOf(football)
+
+        this.footballs[index].removeMe()
+        
         this.footballs.splice(index , 1)
 
     }

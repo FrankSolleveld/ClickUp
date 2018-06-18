@@ -6,7 +6,7 @@ class Football {
     y : number
 
     // Defining Spped as a number
-    speedX : number
+    //speedX : number
     speedY : number
 
     // Making a private instance of game which is untouchable by the user.
@@ -25,11 +25,11 @@ class Football {
         this.htmlElement.addEventListener("click",()     => this.clickHandler())
 
         // We give X and Y stativ values and randomize this later on.
-        this.x = 3
-        this.y = 60
+        this.x = Math.random() * window.innerWidth - 100
+        this.y = -60
 
         // Randomizing the position of the football.
-        this.speedX = Math.random() * 2 + 1
+        //this.speedX = Math.random() * 2 + 1
         this.speedY = Math.random() * 2 + 2
     }
 
@@ -41,7 +41,7 @@ class Football {
         // console.log(this.y)
 
         // If football goes to the ground, game over. This counts for the clientHeight as well for the regular y variable.
-        if(this.y + this.htmlElement.clientHeight > window.innerHeight || this.y < 0) {
+        if(this.y + this.htmlElement.clientHeight > window.innerHeight) {
 
             let football = this.htmlElement;
             football.classList.add("fail");
@@ -49,7 +49,7 @@ class Football {
             // console.log(football)
 
             this.speedY = 0
-            this.speedX = 0
+            // this.speedX = 0
 
             this.game.fail(this)
         
@@ -60,7 +60,11 @@ class Football {
     }
 
     clickHandler(){
-        this.y -= this.speedY + 250
+        this.y -= 250 // zet 250 pixels omhaag
+    }
+
+    removeMe() {
+        this.htmlElement.remove()
     }
 
 

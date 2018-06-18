@@ -7,24 +7,25 @@ var Football = (function () {
         document.body.appendChild(this.htmlElement);
         console.log("Made the football in the document.");
         this.htmlElement.addEventListener("click", function () { return _this.clickHandler(); });
-        this.x = 3;
-        this.y = 60;
-        this.speedX = Math.random() * 2 + 1;
+        this.x = Math.random() * window.innerWidth - 100;
+        this.y = -60;
         this.speedY = Math.random() * 2 + 2;
     }
     Football.prototype.move = function () {
         this.y += this.speedY;
-        if (this.y + this.htmlElement.clientHeight > window.innerHeight || this.y < 0) {
+        if (this.y + this.htmlElement.clientHeight > window.innerHeight) {
             var football = this.htmlElement;
             football.classList.add("fail");
             this.speedY = 0;
-            this.speedX = 0;
             this.game.fail(this);
         }
         this.draw();
     };
     Football.prototype.clickHandler = function () {
-        this.y -= this.speedY + 250;
+        this.y -= 250;
+    };
+    Football.prototype.removeMe = function () {
+        this.htmlElement.remove();
     };
     Football.prototype.draw = function () {
         this.htmlElement.style.transform = "translate(" + this.x + "px, " + this.y + "px)";
@@ -50,6 +51,7 @@ var Game = (function () {
     };
     Game.prototype.fail = function (football) {
         var index = this.footballs.indexOf(football);
+        this.footballs[index].removeMe();
         this.footballs.splice(index, 1);
     };
     return Game;

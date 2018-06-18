@@ -14,7 +14,7 @@
 
 
 ### Todo
-* Randomize locations and smoothen the fall.
+* Randomize locations and smoothen the fall.]
 * Debugging
 
 ### Known issues
