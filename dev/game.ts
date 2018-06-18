@@ -38,7 +38,7 @@ class Game {
         let index = this.footballs.indexOf(football)
 
         this.footballs[index].removeMe()
-        
+            
         this.footballs.splice(index , 1)
 
     }
