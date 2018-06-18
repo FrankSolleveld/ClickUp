@@ -9,12 +9,13 @@
 ### Done
 * Background
 * CSS
+* Ball is moving
+* Keeping high
 
 
 ### Todo
-* Keeping high function
-* Make the football appear on screen.
+* Randomize locations and smoothen the fall.
 * Debugging
 
 ### Known issues
-* Ball not moving
+* Football still stuck when out of screen.
