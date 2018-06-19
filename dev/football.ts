@@ -5,7 +5,7 @@ class Football {
     x : number
     y : number
 
-    // Defining Spped as a number
+    // Defining Speed as a number
     //speedX : number
     speedY : number
 
@@ -22,7 +22,7 @@ class Football {
         console.log("Made the football in the document.")
 
         // Here we add a click event on the football.
-        this.htmlElement.addEventListener("click",()     => this.clickHandler())
+        this.htmlElement.addEventListener("mousedown",()     => this.clickHandler())
 
         // We give X and Y stativ values and randomize this later on.
         this.x = Math.random() * window.innerWidth - 100

@@ -6,7 +6,7 @@ var Football = (function () {
         this.htmlElement = document.createElement("football");
         document.body.appendChild(this.htmlElement);
         console.log("Made the football in the document.");
-        this.htmlElement.addEventListener("click", function () { return _this.clickHandler(); });
+        this.htmlElement.addEventListener("mousedown", function () { return _this.clickHandler(); });
         this.x = Math.random() * window.innerWidth - 100;
         this.y = -60;
         this.speedY = Math.random() * 2 + 2;
@@ -36,7 +36,7 @@ var Game = (function () {
     function Game() {
         console.log("New game initialised");
         this.footballs = new Array();
-        for (var index = 0; index < 3; index++) {
+        for (var index = 0; index < 5; index++) {
             this.footballs.push(new Football(this));
         }
         this.gameLoop();

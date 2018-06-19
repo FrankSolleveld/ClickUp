@@ -8,7 +8,7 @@ class Game {
         
         // Footballs are placed inside an array.
         this.footballs = new Array()
-        for (let index = 0; index < 3; index++) {
+        for (let index = 0; index < 5; index++) {
 
                 // Makes sure only 3 balls will fall.
                 this.footballs.push(new Football(this))
