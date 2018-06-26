@@ -61,6 +61,7 @@ class Football {
 
     clickHandler(){
         this.y -= 250 // zet 250 pixels omhaag
+        this.game.updateScore()
     }
 
     removeMe() {

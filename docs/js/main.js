@@ -23,6 +23,7 @@ var Football = (function () {
     };
     Football.prototype.clickHandler = function () {
         this.y -= 250;
+        this.game.updateScore();
     };
     Football.prototype.removeMe = function () {
         this.htmlElement.remove();
@@ -35,10 +36,14 @@ var Football = (function () {
 var Game = (function () {
     function Game() {
         console.log("New game initialised");
+        this.score = 0;
+        this.scoreEl = document.getElementById("score");
+        this.ballsEl = document.getElementById("balls");
         this.footballs = new Array();
         for (var index = 0; index < 5; index++) {
             this.footballs.push(new Football(this));
         }
+        this.ballsEl.innerHTML = "Ballen:" + this.footballs.length;
         this.gameLoop();
     }
     Game.prototype.gameLoop = function () {
@@ -51,8 +56,13 @@ var Game = (function () {
     };
     Game.prototype.fail = function (football) {
         var index = this.footballs.indexOf(football);
+        this.ballsEl.innerHTML = "Ballen:" + this.footballs.length;
         this.footballs[index].removeMe();
         this.footballs.splice(index, 1);
+    };
+    Game.prototype.updateScore = function () {
+        this.score++;
+        this.scoreEl.innerHTML = "Score: " + this.score;
     };
     return Game;
 }());

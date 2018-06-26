@@ -1,10 +1,18 @@
 class Game {
 
     // Set the balls in an array
-    footballs : Array<Football>
+    public footballs : Array<Football>
+    private score : number
+
+    private scoreEl : HTMLElement | any
+    private ballsEl : HTMLElement | any
     
     constructor() {
         console.log("New game initialised")
+        this.score = 0
+
+        this.scoreEl = document.getElementById("score")
+        this.ballsEl = document.getElementById("balls")
         
         // Footballs are placed inside an array.
         this.footballs = new Array()
@@ -14,6 +22,8 @@ class Game {
                 this.footballs.push(new Football(this))
             
         }
+
+        this.ballsEl.innerHTML = "Ballen:" + this.footballs.length
 
         this.gameLoop()
     }
@@ -37,10 +47,16 @@ class Game {
         // Splicing
         let index = this.footballs.indexOf(football)
 
+        this.ballsEl.innerHTML = "Ballen:" + this.footballs.length
         this.footballs[index].removeMe()
             
         this.footballs.splice(index , 1)
 
+    }
+
+    public updateScore(){
+        this.score++
+        this.scoreEl.innerHTML = "Score: " + this.score
     }
 }
 
