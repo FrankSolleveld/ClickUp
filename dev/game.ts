@@ -55,10 +55,9 @@ class Game {
         
         console.log('Football removed')
 
-        if (this.ballsEl === "1"){
-            console.log('this.ballsEl')
-            let fail = document.getElementById('fail')
-            fail.innerHTML = "<h3>Helaas, je hebt gefaald.</h3>"
+        if (this.footballs.length == 0){
+            let failTheBalls = document.getElementById('fail')
+            failTheBalls.innerHTML = "<h3>Helaas, je hebt gefaald.</h3>"
         }
 
     }

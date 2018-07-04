@@ -61,10 +61,9 @@ var Game = (function () {
         this.footballs.splice(index, 1);
         this.ballsEl.innerHTML = "Ballen:" + this.footballs.length;
         console.log('Football removed');
-        if (this.ballsEl === "1") {
-            console.log('this.ballsEl');
-            var fail = document.getElementById('fail');
-            fail.innerHTML = "<h3>Helaas, je hebt gefaald.</h3>";
+        if (this.footballs.length == 0) {
+            var failTheBalls = document.getElementById('fail');
+            failTheBalls.innerHTML = "<h3>Helaas, je hebt gefaald.</h3>";
         }
     };
     Game.prototype.updateScore = function () {
