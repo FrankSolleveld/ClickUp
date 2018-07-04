@@ -46,11 +46,20 @@ class Game {
         // Removing the football from the array of footballs
         // Splicing
         let index = this.footballs.indexOf(football)
-
-        this.ballsEl.innerHTML = "Ballen:" + this.footballs.length
+        this.footballs[index]
         this.footballs[index].removeMe()
             
         this.footballs.splice(index , 1)
+
+        this.ballsEl.innerHTML = "Ballen:" + this.footballs.length
+        
+        console.log('Football removed')
+
+        if (this.ballsEl === "1"){
+            console.log('this.ballsEl')
+            let fail = document.getElementById('fail')
+            fail.innerHTML = "<h3>Helaas, je hebt gefaald.</h3>"
+        }
 
     }
 

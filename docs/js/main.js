@@ -56,9 +56,16 @@ var Game = (function () {
     };
     Game.prototype.fail = function (football) {
         var index = this.footballs.indexOf(football);
-        this.ballsEl.innerHTML = "Ballen:" + this.footballs.length;
+        this.footballs[index];
         this.footballs[index].removeMe();
         this.footballs.splice(index, 1);
+        this.ballsEl.innerHTML = "Ballen:" + this.footballs.length;
+        console.log('Football removed');
+        if (this.ballsEl === "1") {
+            console.log('this.ballsEl');
+            var fail = document.getElementById('fail');
+            fail.innerHTML = "<h3>Helaas, je hebt gefaald.</h3>";
+        }
     };
     Game.prototype.updateScore = function () {
         this.score++;
