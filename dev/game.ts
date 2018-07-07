@@ -56,13 +56,8 @@ class Game {
         console.log('Football removed')
 
         if (this.footballs.length == 0){
-            var newElement = document.createElement('p')
-            newElement.setAttribute("class", "fail")
+            var newElement = document.createElement('h1')
             newElement.innerText = "Helaas, je hebt gefaald."
-            newElement.style.width = '100%'
-            newElement.style.backgroundColor = 'white'
-            newElement.style.top = "25%"
-            newElement.style.left = "25%"
             document.getElementById('fail').appendChild(newElement)
         }
 
