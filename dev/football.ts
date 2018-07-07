@@ -5,6 +5,9 @@ class Football {
     x : number
     y : number
 
+    // Defining sound property
+    private sound:any
+
     // Defining Speed as a number
     //speedX : number
     speedY : number
@@ -13,6 +16,11 @@ class Football {
     private game : Game
 
     constructor(game:Game){
+
+        this.sound = new Howl({
+            src:['kick.mp3']
+        })
+
         this.game = game
 
        this.htmlElement = document.createElement("football")
@@ -62,6 +70,7 @@ class Football {
     clickHandler(){
         this.y -= 250 // zet 250 pixels omhaag
         this.game.updateScore()
+        this.sound.play()
     }
 
     removeMe() {

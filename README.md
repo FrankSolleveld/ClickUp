@@ -13,19 +13,28 @@ Wil je het project lokaal spelen of de sourcecode bekijken? Clone de repository 
 
 ## Checklist
 - [x] Startscherm
-- [x] Einscherm
+- [x] Eindscherm
 - [x] Er zijn geen bugs
 
 ## Toelichting OOP
 
 ### Classes
-
+Classes gebruik je om dingen in je game wereld te krijgen. Mijn game maakt gebruik van voornamelijk twee classes. Game en Football. Football zit in de Game. 
 
 ```
+class Football {
+     // Creating Element and defining x and y
+    htmlElement : HTMLElement
+    x : number
+    y : number
+
+    // Defining Speed as a number
+    //speedX : number
+    speedY : number
+}
 ```
 
 ### Encapsulation
-
 
 ```
 ```

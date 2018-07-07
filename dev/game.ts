@@ -56,7 +56,7 @@ class Game {
         console.log('Football removed')
 
         if (this.footballs.length == 0){
-            let failTheBalls = document.getElementById('fail')
+            let failTheBalls: HTMLElement  = document.getElementById('fail')
             failTheBalls.innerHTML = "<h3>Helaas, je hebt gefaald.</h3>"
         }
 

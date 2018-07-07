@@ -16,7 +16,15 @@ background-color: #5BB7FF ;
     justify-content: center;
     align-items: center;
 }
+#fail {
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-color: white;
+
+}
 button {
 
     width: 100px;

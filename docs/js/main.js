@@ -2,6 +2,9 @@
 var Football = (function () {
     function Football(game) {
         var _this = this;
+        this.sound = new Howl({
+            src: ['kick.mp3']
+        });
         this.game = game;
         this.htmlElement = document.createElement("football");
         document.body.appendChild(this.htmlElement);
@@ -24,6 +27,7 @@ var Football = (function () {
     Football.prototype.clickHandler = function () {
         this.y -= 250;
         this.game.updateScore();
+        this.sound.play();
     };
     Football.prototype.removeMe = function () {
         this.htmlElement.remove();
