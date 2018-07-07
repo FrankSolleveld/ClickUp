@@ -53,7 +53,7 @@ class Football {
 ```
 
 ## Klassendiagram
-
+![diagram](https://imgur.com/a/MeaT3BV)
 
 ## Peer review
 
