@@ -66,8 +66,14 @@ var Game = (function () {
         this.ballsEl.innerHTML = "Ballen:" + this.footballs.length;
         console.log('Football removed');
         if (this.footballs.length == 0) {
-            var failTheBalls = document.getElementById('fail');
-            failTheBalls.innerHTML = "<h3>Helaas, je hebt gefaald.</h3>";
+            var newElement = document.createElement('p');
+            newElement.setAttribute("class", "fail");
+            newElement.innerText = "Helaas, je hebt gefaald.";
+            newElement.style.width = '100%';
+            newElement.style.backgroundColor = 'white';
+            newElement.style.top = "25%";
+            newElement.style.left = "25%";
+            document.getElementById('fail').appendChild(newElement);
         }
     };
     Game.prototype.updateScore = function () {

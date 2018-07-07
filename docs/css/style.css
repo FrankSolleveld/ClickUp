@@ -16,15 +16,18 @@ background-color: #5BB7FF ;
     justify-content: center;
     align-items: center;
 }
-#fail {
 
-    display: flex;
+.fail {
+
+    /* display: flex;
     justify-content: center;
     align-items: center;
     align-content: center;
     background-color: white;
+    width: 100%; */
 
 }
+
 button {
 
     width: 100px;
