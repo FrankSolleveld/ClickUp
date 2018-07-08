@@ -1,9 +1,7 @@
-class Football {
+class Football extends gameObject {
 
     // Creating Element and defining x and y
     htmlElement : HTMLElement
-    x : number
-    y : number
 
     // Defining sound property
     private sound:any
@@ -13,9 +11,10 @@ class Football {
     speedY : number
 
     // Making a private instance of game which is untouchable by the user.
-    private game : Game
+    protected game : Game
 
     constructor(game:Game){
+        super()
 
         this.sound = new Howl({
             src:['kick.mp3']
@@ -64,8 +63,9 @@ class Football {
         }
         
         // Move function is called. This function is defined at the bottom of the file.
-        this.draw()
+        super.draw()
     }
+
 
     clickHandler(){
         this.y -= 250 // zet 250 pixels omhaag
@@ -78,10 +78,5 @@ class Football {
     }
 
 
-    draw() : void {
-
-        // Making sure the balls move.
-        this.htmlElement.style.transform = "translate(" + this.x +"px, "+this.y+"px)"
-
-    }
+ 
 }
