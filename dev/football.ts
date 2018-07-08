@@ -1,4 +1,4 @@
-/// <reference path="gameObject.ts"/>
+/// <reference  path="gameObject.ts"/>
 class Football extends gameObject {
 
     // Creating Element and defining x and y

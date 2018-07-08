@@ -93,33 +93,38 @@ class Game {
 
 
 ### Inheritance
-Inheritance staat volledig voor Don't Repeat Yourself (DRY). Nu is het zo dat mijn game redelijk simpel is. Deze techniek van programmeren was niet erg toepasselijk op mijn project maar ik heb het wel aangepakt. De x en y waardes worden door gameObject opgevangen. De class Football maakt gebruik van deze waardes door gameObject te extenden en vervolgens in de constructor() super() aan te roepen. Hierdoor kunnen wij gebruik maken van de waardes en methods die in gameObject gemaakt worden.
+Inheritance staat volledig voor Don't Repeat Yourself (DRY). Nu is het zo dat mijn game redelijk simpel is. Deze techniek van programmeren was niet erg toepasselijk op mijn project maar ik heb het wel aangepakt. De x en y waardes worden door gameObject opgevangen. De class Football maakt gebruik van deze waardes door gameObject te extenden en vervolgens in de constructor() super() aan te roepen. Hierdoor kunnen wij gebruik maken van de waardes en methods die in gameObject gemaakt worden. In de toekomst kan het makkelijk zijn dat ik dingen ga toevoegen aan de game en dan kan ik gemakkelijker linken aan dezelfde eigenschappen.
 
 ```
 class gameObject {
 
-    protected htmlElement : HTMLElement
     protected  x : number
     protected  y : number
 
     speedY : number
 
-    constructor(){
+    // Making a private instance of game which is untouchable by the user.
+    protected game : Game
 
+    constructor(game:Game){
 
+        this.game = game
 
-    }
+        // We give X and Y stativ values and randomize this later on.
+        this.x = Math.random() * window.innerWidth - 100
+        this.y = -60
 
-    draw() : void {
+        // Randomizing the position of the football.
+        //this.speedX = Math.random() * 2 + 1
+        this.speedY = Math.random() * 2 + 2
 
-        // Making sure the balls move.
-        this.htmlElement.style.transform = "translate(" + this.x +"px, "+this.y+"px)"
 
     }
 
 }
 ```
 ```
+/// <reference  path="gameObject.ts"/>
 class Football extends gameObject {
 
     // Creating Element and defining x and y
@@ -128,45 +133,36 @@ class Football extends gameObject {
     // Defining sound property
     private sound:any
 
-    // Defining Speed as a number
-    //speedX : number
-    speedY : number
-
-    // Making a private instance of game which is untouchable by the user.
-    protected game : Game
-
     constructor(game:Game){
-        super()
+        super(game)
+
+        this.sound = new Howl({
+            src:['kick.mp3']
+        })
+
+        this.game = game
+
+       this.htmlElement = document.createElement("football")
+
+       // Make the HTML Element for the football.
+        document.body.appendChild(this.htmlElement)
+        console.log("Made the football in the document.")
+
+        // Here we add a click event on the football.
+        this.htmlElement.addEventListener("mousedown",()     => this.clickHandler())
+
+    }
     }
 
-    move() : void {
+ 
 
-        // Here the movements are calculated. The ball is just falling.
-        this.y += this.speedY
 
-        // console.log(this.y)
-
-        // If football goes to the ground, game over. This counts for the clientHeight as well for the regular y variable.
-        if(this.y + this.htmlElement.clientHeight > window.innerHeight) {
-
-            let football = this.htmlElement;
-            football.classList.add("fail");
-
-            // console.log(football)
-
-            this.speedY = 0
-            // this.speedX = 0
-
-            this.game.fail(this)
-        
-        }
-        
-        // Move function is called. This function is defined in gameObject.ts.
-        super.draw()
+ 
+}
     }
 ```
 ## Klassendiagram
-![diagram](https://i.imgur.com/aU1Sf8m.jpg)
+![diagram](https://i.imgur.com/sor3PMU.png)
 
 ## Peer review
 [Review op de game van Charlene](https://github.com/Charlenedewaard/Game_Gudetama/issues/1)
