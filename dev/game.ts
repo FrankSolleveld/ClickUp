@@ -58,7 +58,11 @@ class Game {
         if (this.footballs.length == 0){
             var newElement = document.createElement('h1')
             newElement.innerText = "Helaas, je hebt gefaald."
+            var newButton = document.createElement('a')
+            newButton.setAttribute("href", "game.html")
+            newButton.innerText = "Opnieuw"
             document.getElementById('fail').appendChild(newElement)
+            document.getElementById('fail').appendChild(newButton)
         }
 
     }

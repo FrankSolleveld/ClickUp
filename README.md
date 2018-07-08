@@ -56,7 +56,7 @@ class Football {
 ![diagram](https://imgur.com/a/MeaT3BV)
 
 ## Peer review
-
+[Review op de game van Charlene](https://github.com/Charlenedewaard/Game_Gudetama/issues/1)
 
 ## Extra uitdagingen
 - Extra library Howler.js voor geluid in de game, wordt nog geïmplementeerd.
