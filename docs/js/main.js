@@ -1,18 +1,36 @@
 "use strict";
-var Football = (function () {
-    function Football(game) {
-        var _this = this;
-        this.sound = new Howl({
-            src: ['kick.mp3']
-        });
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var gameObject = (function () {
+    function gameObject(game) {
         this.game = game;
-        this.htmlElement = document.createElement("football");
-        document.body.appendChild(this.htmlElement);
-        console.log("Made the football in the document.");
-        this.htmlElement.addEventListener("mousedown", function () { return _this.clickHandler(); });
         this.x = Math.random() * window.innerWidth - 100;
         this.y = -60;
         this.speedY = Math.random() * 2 + 2;
+    }
+    return gameObject;
+}());
+var Football = (function (_super) {
+    __extends(Football, _super);
+    function Football(game) {
+        var _this = _super.call(this, game) || this;
+        _this.sound = new Howl({
+            src: ['kick.mp3']
+        });
+        _this.game = game;
+        _this.htmlElement = document.createElement("football");
+        document.body.appendChild(_this.htmlElement);
+        console.log("Made the football in the document.");
+        _this.htmlElement.addEventListener("mousedown", function () { return _this.clickHandler(); });
+        return _this;
     }
     Football.prototype.move = function () {
         this.y += this.speedY;
@@ -24,6 +42,9 @@ var Football = (function () {
         }
         this.draw();
     };
+    Football.prototype.draw = function () {
+        this.htmlElement.style.transform = "translate(" + this.x + "px, " + this.y + "px)";
+    };
     Football.prototype.clickHandler = function () {
         this.y -= 250;
         this.game.updateScore();
@@ -32,11 +53,8 @@ var Football = (function () {
     Football.prototype.removeMe = function () {
         this.htmlElement.remove();
     };
-    Football.prototype.draw = function () {
-        this.htmlElement.style.transform = "translate(" + this.x + "px, " + this.y + "px)";
-    };
     return Football;
-}());
+}(gameObject));
 var Game = (function () {
     function Game() {
         console.log("New game initialised");

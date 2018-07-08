@@ -1,3 +1,4 @@
+/// <reference path="gameObject.ts"/>
 class Football extends gameObject {
 
     // Creating Element and defining x and y
@@ -6,15 +7,10 @@ class Football extends gameObject {
     // Defining sound property
     private sound:any
 
-    // Defining Speed as a number
-    //speedX : number
-    speedY : number
-
-    // Making a private instance of game which is untouchable by the user.
-    protected game : Game
+  
 
     constructor(game:Game){
-        super()
+        super(game)
 
         this.sound = new Howl({
             src:['kick.mp3']
@@ -31,13 +27,6 @@ class Football extends gameObject {
         // Here we add a click event on the football.
         this.htmlElement.addEventListener("mousedown",()     => this.clickHandler())
 
-        // We give X and Y stativ values and randomize this later on.
-        this.x = Math.random() * window.innerWidth - 100
-        this.y = -60
-
-        // Randomizing the position of the football.
-        //this.speedX = Math.random() * 2 + 1
-        this.speedY = Math.random() * 2 + 2
     }
 
     move() : void {
@@ -63,7 +52,14 @@ class Football extends gameObject {
         }
         
         // Move function is called. This function is defined at the bottom of the file.
-        super.draw()
+        this.draw()
+    }
+
+    draw() : void {
+
+        // Making sure the balls move.
+        this.htmlElement.style.transform = "translate(" + this.x +"px, "+this.y+"px)"
+
     }
 
 
