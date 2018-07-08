@@ -53,7 +53,7 @@ class Football {
 ```
 
 ## Klassendiagram
-![diagram](https://imgur.com/a/MeaT3BV)
+![diagram](https://i.imgur.com/aU1Sf8m.jpg)
 
 ## Peer review
 [Review op de game van Charlene](https://github.com/Charlenedewaard/Game_Gudetama/issues/1)
